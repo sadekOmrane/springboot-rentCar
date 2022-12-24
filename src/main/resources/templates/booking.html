@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" th:href="@{assets/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.css}">
+  </head>
+
+  <body>
+
+    <div th:replace="fragments :: header_frag"></div>
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item item-1">
+            <div class="img-fill">
+                <div class="text-content">
+                  <h6>lorem ipsum dolor sit amet!</h6>
+                  <h4>Quam temporibus accusam <br> hic ducimus quia</h4>
+                  <p>Magni deserunt dolorem consectetur adipisicing elit. Corporis molestiae optio, laudantium odio quod rerum maiores, omnis unde quae illo.</p>
+                  <a href="contact.html" class="filled-button">contact us</a>
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+          <!-- Item -->
+          <div class="item item-2">
+            <div class="img-fill">
+                <div class="text-content">
+                  <h6>magni deserunt dolorem harum quas!</h6>
+                  <h4>Aliquam iusto harum <br>  ratione porro odio</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At culpa cupiditate mollitia adipisci assumenda laborum eius quae quo excepturi, eveniet. Dicta nulla ea beatae consequuntur?</p>
+                  <a href="fleet.html" class="filled-button">Fleet</a>
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+          <!-- Item -->
+          <div class="item item-3">
+            <div class="img-fill">
+                <div class="text-content">
+                  <h6>alias officia qui quae vitae natus!</h6>
+                  <h4>Lorem ipsum dolor <br> sit amet, consectetur.</h4>
+                  <p>Vivamus ut tellus mi. Nulla nec cursus elit, id vulputate mi. Sed nec cursus augue. Phasellus lacinia ac sapien vitae dapibus. Mauris ut dapibus velit cras interdum nisl ac urna tempor mollis.</p>
+                  <a href="offers.html" class="filled-button">Offers</a>
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+<table class="table" style="text-align: center; margin: 50px 0">
+  <thead>
+    <tr >
+       <th>Booking Id</th>
+       <th>Email</th>
+            <th>Car Name</th>
+            <th>Pick Up Date</th>
+            <th>Return Date</th>
+            <th>Pick Up Location</th>
+            <th>Return Location</th>
+            <th>Action</th>
+   </tr>
+  </thead>
+  <tbody>
+      <tr  th:each="booking : ${bookings}">
+<td th:text="${booking.id}">Car ID</td>
+<td th:text="${booking.email}">Email</td>
+<td th:text="${booking.car_name}">Car Name</td>
+<td th:text="${booking.pick_date}">Pick Up Date</td>
+<td th:text="${booking.return_date}">Return Date</td>
+<td th:text="${booking.pick_location}">Pick Up Location</td>
+<td th:text="${booking.return_location}">Return Location</td>
+
+<td>
+<a th:href="@{'/booking/delete/' + ${booking.id}}" style="padding: 6px 18px;" class="filled-button">Delete</a>
+<a th:href="@{'/booking/update/' + ${booking.id}}" style="padding: 6px 18px;" class="filled-button">Update</a>
+</td>         
+</tr>
+  
+  </tbody>
+</table>
+    
+
+	
+    <div th:replace="fragments :: footer_frag"></div>
+	<div th:replace="fragments :: model_frag"></div>
+    <!-- Bootstrap core JavaScript -->
+    <script th:src="@{vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+    <!-- Additional Scripts -->
+    <script th:src="@{assets/js/custom.js}"></script>
+    <script th:src="@{assets/js/owl.js}"></script>
+    <script th:src="@{assets/js/slick.js}"></script>
+    <script th:src="@{assets/js/accordions.js}"></script>
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+  </body>
+</html>
+
+
+
+
+  
